@@ -76,6 +76,7 @@ let randomizearray=(x,y,z)=>
 let result=(x,line,bet)=>
 {
     let win_loose;
+    let win_col;
     console.log(x[0])
     console.log(x[1])
     console.log(x[2])
@@ -104,16 +105,20 @@ let result=(x,line,bet)=>
     for (let i=0;i<3;i++)
     {
         let compare=0;
+        let colcompare=0;
         let k=0;
         k=i+1;
         for (let j=0;j<3;j++)
         {
             compare+=x[i][j]
              win_loose=compare/(j+1)
-            console.log(win_loose)
+            //console.log(win_loose)
+            colcompare+=x[j][i]
+            win_col=colcompare/(j+1)
+            //console.log(win_col)
             
         }
-        if(win_loose==x[i][0])
+        if(win_loose==x[i][0] || win_col==x[0][i] )//will not work if any value is 1 in the array
             {
                 line==k?console.log(`you won on line ${k}`):console.log(`Should have betted on line ${k}`);
             }
